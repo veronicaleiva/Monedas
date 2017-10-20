@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h1> estas seguro de eliminar? </h1>
+<form method="post" >
+  {% csrf_token %}
+<!--  permite dar un poco de seguridad a la pagina frente a posibles hackers-->
+  <div class="form-group">
+    <label for="{{formulario.nombre.id_for_label}}">{{ formulario.nombre.label }}</label>
+    {{ formulario.nombre }}
+  </div>
+  <div class="form-group">
+    <label for="{{formulario.abreviacion.id_for_label}}n">{{ formulario.abreviacion.label }}</label>
+    {{ formulario.abreviacion}}
+  </div>
+  <button type="submit" class="btn btn-primary">Aceptar</button>
+  <a href="/crud/" class="btn btn-ligth">Cancelar</a>
+  <!-- OTRA FORMA DE VER EL BOTON CANCELAR -<button type="submit" class="btn btn-ligth">Cancelar</button> -->
+
+</form>
+{% endblock %}
